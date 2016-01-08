@@ -3,19 +3,27 @@
 	include ('inc/db_connect.php');
 
 
-	$query = "SELECT * FROM basketball";
+	$query = "SELECT * FROM explode";
 	$result = mysql_query($query);
 	while($row = mysql_fetch_assoc($result)){
 		$rows[] = $row;		
 	}
 	$rand = rand ( 0, count($rows)-1 );
+	$rand2 = $rand;
 
-	$match_id = $rows[$rand]['id'];
-	$team1 = $rows[$rand]['team1'];
-	$team2 = $rows[$rand]['team2'];
-	$team1_pic = $rows[$rand]['team1_pic'];
-	$team2_pic = $rows[$rand]['team2_pic'];
+	while($rand == $rand2){
+		$rand2 = rand ( 0, count($rows)-1 );
+	}
 
+	$item1_id = $rows[$rand]['id'];
+	$item1 = $rows[$rand]['item'];
+	$item1_pic = $rows[$rand]['item_pic'];
+	$desc1 = $rows[$rand]['desc'];
+
+	$item2_id = $rows[$rand2]['id'];
+	$item2 = $rows[$rand2]['item'];
+	$item2_pic = $rows[$rand2]['item_pic'];
+	$desc2 = $rows[$rand2]['desc'];
 
 ?>
 
@@ -33,7 +41,7 @@
 
 
 <div id="container">
-	<div id="header-text">Who will win?</div>
+	<div id="header-text">Which would you rather see explode?</div>
 	<div id="team-wrapper">
 
 	<?php if($none): ?>
@@ -42,19 +50,21 @@
 	<?php else: ?>
 		<div id="team-left">
 			<div class="team-pic">
-				<img src="images/<?php print $team1_pic; ?>">
+				<img src="images/<?php print $item1_pic; ?>">
 			</div>
-			<div class="results" team-wrapper="<?php print $team1; ?>">
-				<button class="team-vote" mid="<?php print $match_id; ?>" team="<?php print $team1; ?>" opp="<?php print $team2; ?>"><?php print $team1; ?> wins</button>
+			<div class="results" team-wrapper="<?php print $item1; ?>">
+				<button class="team-vote" iid="<?php print $item1_id; ?>" oppid="<?php print $item2_id; ?>"><?php print $item1; ?> </button>
+				<div class="tooltip"><?php print $desc1; ?></div>
 			</div>
 		</div>
 
 		<div id="team-right">
 			<div class="team-pic">
-				<img src="images/<?php print $team2_pic; ?>">
+				<img src="images/<?php print $item2_pic; ?>">
 			</div>
-			<div class="results" team-wrapper="<?php print $team2; ?>">
-				<button class="team-vote" mid="<?php print $match_id; ?>" team="<?php print $team2; ?>" opp="<?php print $team1; ?>"><?php print $team2; ?> wins</button>
+			<div class="results" team-wrapper="<?php print $item2; ?>">
+				<button class="team-vote" iid="<?php print $item2_id; ?>" oppid="<?php print $item1_id; ?>"><?php print $item2; ?> </button>
+				<div class="tooltip"><?php print $desc2; ?></div>
 			</div>
 		</div>
 		<div id="next-vote">
