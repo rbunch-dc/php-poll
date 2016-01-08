@@ -1,0 +1,73 @@
+#container{
+	margin: auto;
+	overflow: hidden;
+	width: 100%;
+	text-align: center;
+}
+
+#header-text{
+	text-align: center;
+	font-size: 40px;
+}
+
+#team-wrapper{
+	margin: auto;
+	padding: 0px 20px;
+}
+
+#team-wrapper #team-left{
+	width: 50%;
+	float: left;
+}
+
+#team-wrapper #team-right{
+	width: 40%;	
+	float: right;
+}
+
+#team-wrapper .team-pic img{
+	max-width: 100%;
+}
+
+.team-vote{
+	width: 100%;
+	margin-top: 20px;
+	text-align: center;
+	padding: 5px 20px;
+}
+
+#team-right .team-vote{
+	background-color: gold;
+	color: black;	
+}
+#team-left .team-vote{
+	background-color: black;
+	color: gold;	
+}
+
+#next-vote{
+	text-align: center;
+	clear: both;
+	text-align: center;
+	font-size: 40px;
+	max-width: 100px;
+	margin: auto;
+	margin-top: 20px;
+}
+
+.results{
+	text-align: center;
+	font-size: 30px;
+	margin-top: 30px;
+}
+
+#vote-all{
+	text-align: center;
+	font-size: 30px;
+}
+#all-pic{
+	text-align: center;
+}
+#left-ad, #right-ad, #team-wrapper{ 
+	float: left;
+}
